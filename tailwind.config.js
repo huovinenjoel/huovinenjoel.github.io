@@ -12,6 +12,7 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
+        "mobile": "360px",
         "2xl": "1400px",
       },
     },
@@ -70,6 +71,12 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        'handlee': ['Handlee','cursive'],
+        'dancing': ['Dancing Script', 'cursive'],
+        'amatic': ['Amatic SC', 'cursive']
+      },
+      
     },
   },
   plugins: [require("tailwindcss-animate")],

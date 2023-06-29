@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   Dialog,
@@ -9,35 +10,61 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+import { ChevronRight } from "lucide-react";
+import { CornerDownLeft } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center relative">
+      <div className="sticky top-0 py-5 z-50 flex justify-center bg-opacity-80 border-gray-200 border-b-2 backdrop-blur-md bg-white md:px-36 px-5 w-fit rounded-b-lg md:gap-10 gap-2 drop-shadow-2xl">
+        <Button
+          variant="outline"
+          className="bg-transparent border-slate-600 border-2 min-w-[100px]"
+        asChild>
+          <a href="/">Koti</a>
+        </Button>
+        <Button
+          variant="outline"
+          className="bg-transparent border-slate-600 border-2 min-w-[100px]"
+        asChild>
+          <a href="/galleria">Galleria</a>
+        </Button>
+        <Button
+          variant="outline"
+          className="bg-transparent border-slate-600 border-2 min-w-[100px]"
+        >
+          Lisätietoja
+        </Button>
+      </div>
       <div className="relative w-auto h-auto">
         {/* Otsikot */}
 
         <h1
           className="font-extrabold
                       text-center
-                      text-8xl
-                      pt-52 
+                      md:text-8xl
+                      text-6xl
+                      pt-48 
                       bg-gradient-to-t from-slate-950 to-slate-600 
                       text-transparent 
                       bg-clip-text 
-                      drop-shadow-2xl"
+                      drop-shadow-2xl animation duration-200"
         >
           JOLLEN SIVUSTO
         </h1>
         <h2
           className="font-bold
                       text-center 
-                      text-4xl 
+                      md:text-4xl
+                      text-2xl 
                       bg-gradient-to-t from-slate-800 to-slate-500
                       text-transparent
                       bg-clip-text 
                       drop-shadow-2xl"
         >
-          Sivusto kasautuu vaihe vaiheelta
+          Sivusto kasautuu vähitellen
         </h2>
       </div>
 
@@ -45,7 +72,8 @@ export default function Home() {
 
       <div
         className="rounded-full 
-                      w-96 h-96 
+        lg:w-96 lg:h-96
+        w-64 h-64 
                       bg-amber-300 
                       mix-blend-multiply 
                       opacity-80 blur-[150px] 
@@ -54,23 +82,27 @@ export default function Home() {
       ></div>
       <div
         className="rounded-full 
-                      w-96 h-96 
+        lg:w-96 lg:h-96
+        w-64 h-64
                       bg-sky-300 
                       mix-blend-multiply 
                       opacity-80 blur-[150px] 
                       absolute -z-10 
-                      right-64 top-72 
+                      lg:right-64 lg:top-72
+                      right-32 top-48 
                       animate-blob 
                       animation-delay-2000"
       ></div>
       <div
         className="rounded-full 
-                      w-96 h-96 
+                      lg:w-96 lg:h-96
+                      w-64 h-64 
                       bg-teal-300 
                       mix-blend-multiply 
                       opacity-80 blur-[150px] 
                       absolute -z-10
-                      left-56 top-64 
+                      lg:left-56 lg:top-64
+                      left-32 top-48
                       animate-blob
                       animation-delay-4000"
       ></div>
@@ -79,7 +111,7 @@ export default function Home() {
 
       <Dialog>
         <DialogTrigger asChild>
-          <a className="group mt-48 w-64 h-64 relative ">
+          <a className="group  mt-[130px] md:w-64 md:h-64 w-52 h-52 relative ">
             <img
               src="/herrahiirijpeg.jpg"
               alt="Tietoa minusta"
@@ -95,6 +127,13 @@ export default function Home() {
                     hover:mix-blend-multiply
                     transition duration-200"
             />
+            <div className="group-hover:scale-150 transition duration-200 absolute grid md:-right-[100px] -right-[60px] md:top-6 top-3 scale-125">
+              <p className=" font-amatic md:text-2xl text-lg font-bold rotate-12 animate-pulse">
+                Klikkaa minua
+              </p>
+              <CornerDownLeft className="-mt-2 ml-2" />
+            </div>
+
             <div
               id="tooltip-default"
               role="tooltip"
@@ -110,11 +149,11 @@ export default function Home() {
             </div>
           </a>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[700px]">
+        <DialogContent className="md:max-w-[700px] max-w-[350px]">
           <DialogHeader>
             <DialogTitle>Tietoa minusta</DialogTitle>
           </DialogHeader>
-          <div className="p-10 text-xl font-semibold text-slate-700">
+          <div className="md:p-10 md:text-xl text-md font-semibold text-slate-700">
             <p>
               Moi, olen Joel Huovinen, tuleva tekniikan opiskelija Tampereen
               yliopistossa. Vapaa-ajalla teen yleensä jotain luovaa, kuten
@@ -146,7 +185,7 @@ export default function Home() {
         Opiskelija
       </Badge>
 
-      <blockquote className="text-xl italic text-slate-700 max-w-2xl">
+      <blockquote className="px-7 text-xl italic text-slate-700 max-w-2xl">
         <svg
           aria-hidden="true"
           className="w-10 h-10 text-slate-300"
@@ -166,6 +205,17 @@ export default function Home() {
           koodaamassa nettisivuja."
         </p>
       </blockquote>
+      <div className="py-20">
+        <Button
+          variant="outline"
+          className=" text-md
+                                            hover:scale-90
+                                            transition duration-100"
+        asChild>
+          <a href="/galleria">Katso lisää <ChevronRight /></a>
+          
+        </Button>
+      </div>
     </main>
   );
 }
