@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import React, { BaseSyntheticEvent } from "react";
 
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +10,20 @@ import { CornerDownLeft } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
+  let lastTarget: EventTarget & HTMLImageElement;
+
+  const Enlarge = (event: React.MouseEvent<HTMLImageElement>) => {
+    if (lastTarget) {
+      lastTarget.style.scale = "1";
+      lastTarget.style.margin = "0";
+    }
+
+    event.currentTarget.style.scale = "2.5";
+    event.currentTarget.style.margin = "200px";
+
+    lastTarget = event.currentTarget;
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center relative">
       <div className="sticky top-0 py-5 z-50 flex justify-center bg-opacity-80 border-gray-200 border-b-2 backdrop-blur-md bg-white md:px-36 px-5 w-fit rounded-b-lg md:gap-10 gap-2 drop-shadow-2xl">
@@ -109,51 +124,64 @@ export default function Home() {
       <div className="flex flex-wrap justify-center gap-3 mb-10 drop-shadow-2xl [&>*]:rounded-lg relative">
         <img
           src="/gallery/Arcs.jpg"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          id="arcs"
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/bananaduck.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/CropGlitchArt.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/desert.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/igpf.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/jol-1.jpg"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/kaljio.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/PROFpianomiäs.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/kukkatest.webp"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/leaf.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/leikkauspöytä.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
         <img
           src="/gallery/PianoKeys.png"
-          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-200"
+          onClick={Enlarge}
+          className="md:w-[256px] md:h-[256px] w-[200px] h-[200px] object-cover hover:scale-90 duration-500"
         />
       </div>
     </main>
